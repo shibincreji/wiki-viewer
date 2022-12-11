@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#root {
+	font-family: "Poppins", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	min-height: 700px;
+	background: #e6e6ee;
+	padding: 50px;
+}
+
+header h1 {
+	margin-bottom: 50px;
+}
+
+.app {
+	width: 80%;
+	max-width: 800px;
+	background: white;
+	border-radius: 5px;
+	overflow: auto;
+	height: 60px;
+	box-shadow: 0 0 40px #0002;
+	margin-bottom: 20px;
+	transition: height 0.5s ease-out;
+}
+.active.app {
+	height: calc(100vh - 100px);
+}
+
+.form {
+	display: flex;
+	position: sticky;
+	top: 0;
+	background: white;
+	align-items: center;
+	padding: 5px 20px;
+	box-shadow: 0 0 20px #0002;
+}
+
+.search-icon {
+	font-size: 2rem;
+	margin-right: 20px;
+	color: #898989;
+}
+
+button {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+}
+
+.cancel-icon {
+	font-size: 1.8rem;
+	color: #898989;
+	flex-basis: 20%;
+}
+
+.form input {
+	height: 50px;
+	flex-basis: 100%;
+	border: none;
+	outline: none;
+	font-family: inherit;
+	font-size: 1.3rem;
+}
+
+input::placeholder {
+	color: #b5b5b5;
+	letter-spacing: 0.08em;
+	transition: color 0.2s linear;
+}
+
+input:focus::placeholder {
+	color: #898989;
+}
+
+.active .results {
+	padding: 20px 10px;
+}
+
+.app::-webkit-scrollbar {
+	display: none;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.result {
+	padding: 10px;
+}
+
+.result h2 {
+	font-size: 1.3rem;
+	margin-bottom: 5px;
+}
+
+.result p {
+	color: #6b6b6b;
+}
+
+.result:hover,
+.result:focus {
+	border: none;
+	outline: none;
+	background: #d3d3d3;
+	border-radius: 5px;
+}
+
+footer > p {
+	color: #7f7f7f;
+}
+
+.loading {
+	display: flex;
+	gap: 10px;
+	margin: 0 30px;
+	opacity: 0;
+}
+
+.active.loading {
+	opacity: 1;
+}
+
+.active.loading > * {
+	animation-play-state: running;
+}
+
+.loading > * {
+	width: 8px;
+	height: 8px;
+	background: #b5b5b5;
+	border-radius: 50%;
+}
+.one {
+	animation: loadingOne 1s infinite;
+	animation-play-state: paused;
+}
+
+.two {
+	animation: loadingTwo 1s infinite;
+	animation-play-state: paused;
+}
+
+.three {
+	animation: loadingThree 1s infinite;
+	animation-play-state: paused;
+}
+
+@keyframes loadingOne {
+	20% {
+		transform: scale(1.5);
+		background-color: #6b6b6b;
+	}
+	60% {
+		transform: scale(1);
+	}
+}
+
+@keyframes loadingTwo {
+	40% {
+		transform: scale(1.5);
+		background-color: #6b6b6b;
+	}
+	80% {
+		transform: scale(1);
+	}
+}
+
+@keyframes loadingThree {
+	60% {
+		transform: scale(1.5);
+		background-color: #6b6b6b;
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@media (max-width: 768px) {
+	.app {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	html {
+		font-size: 14px;
+	}
+	.app {
+		width: 100%;
+	}
+	#root {
+		padding: 50px 20px;
+	}
+	.search-icon {
+		display: none;
+	}
+	.loading {
+		position: absolute;
+		top: 50%;
+		right: 30px;
+		transform: translate(0, -50%);
+	}
+}
